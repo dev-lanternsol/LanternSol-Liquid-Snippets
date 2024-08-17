@@ -19,10 +19,13 @@ function App() {
     <div className="App">
       <nav className="navbar bg-info-subtle">
         <div className="container-fluid py-3 px-5">
-          <a className="navbar-brand" href="https://www.lanternsol.com/" target="_blank" rel="noopener noreferrer">
+          <a className="navbar-brand mx-auto mb-3 m-md-0" href="https://www.lanternsol.com/" target="_blank" rel="noopener noreferrer">
             <img className="img-fluid" src={logo} alt="lanternsol" width="200" height="40"/>
           </a>
-          <a href="https://shopify.github.io/liquid/" className="btn btn-outline-success">Liquid documentation</a>
+          <div className="hstack gap-3">
+            <a href="https://shopify.github.io/liquid/" className="btn btn-outline-success">Liquid documentation</a>
+            <a href="https://www.freeformatter.com/json-escape.html#before-output" className="btn btn-outline-primary">Markup JSON formatter</a>
+          </div>
         </div>
       </nav>
       <div className="container">
