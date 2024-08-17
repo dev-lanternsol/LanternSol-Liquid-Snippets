@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/LanternSol-Liquid-Snippets/static/css/main.486b8393.css",
-    "main.js": "/LanternSol-Liquid-Snippets/static/js/main.d0e019be.js",
+    "main.js": "/LanternSol-Liquid-Snippets/static/js/main.a691ff66.js",
     "static/js/453.ae575fce.chunk.js": "/LanternSol-Liquid-Snippets/static/js/453.ae575fce.chunk.js",
     "static/media/logo.svg": "/LanternSol-Liquid-Snippets/static/media/logo.e04b9bddcbc66fc43a8083135e760a1f.svg",
     "index.html": "/LanternSol-Liquid-Snippets/index.html",
     "main.486b8393.css.map": "/LanternSol-Liquid-Snippets/static/css/main.486b8393.css.map",
-    "main.d0e019be.js.map": "/LanternSol-Liquid-Snippets/static/js/main.d0e019be.js.map",
+    "main.a691ff66.js.map": "/LanternSol-Liquid-Snippets/static/js/main.a691ff66.js.map",
     "453.ae575fce.chunk.js.map": "/LanternSol-Liquid-Snippets/static/js/453.ae575fce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.486b8393.css",
-    "static/js/main.d0e019be.js"
+    "static/js/main.a691ff66.js"
   ]
 }
