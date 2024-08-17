@@ -2,18 +2,25 @@ import { useState } from "react";
 import { liquidSnippets } from "./liquid_snippets";
 import logo from './logo.svg';
 import Accordion from "./accordion";
+import Tags from "./tags";
 import './App.css';
 
 function App() {
   const [query, setQuery] = useState("");
-  const keys = ["title", "description"]
+  const [selectedTags, setSelectedTags] = useState([]);
+  const keys = ["title", "description"];
 
   const search = (data) => {
-    return data.filter(
-      (item) =>
-        keys.some(key=>item[key]?.toLowerCase().includes(query.toLowerCase()))
-    );
-  }
+    return data.filter((item) => {
+      const matchesQuery = keys.some(key =>
+        item[key]?.toLowerCase().includes(query.toLowerCase())
+      );
+      const matchesTags = selectedTags.length === 0 || selectedTags.every(tag =>
+        item.tags.includes(tag)
+      );
+      return matchesQuery && matchesTags;
+    });
+  };
 
   return (
     <div className="App">
@@ -30,8 +37,8 @@ function App() {
       </nav>
       <div className="container">
         <div className="card mt-3">
-          <p className="text-start p-5 pb-0">Perform a search between all the liquid snippets.</p> 
-          <div className="input-group mx-auto p-5 pt-0">
+          <p className="text-start px-3 pt-4 p-md-5 pb-0">Perform a search between all the liquid snippets.</p> 
+          <div className="input-group mx-auto px-3 pb-3 pt-0 px-md-5 pb-md-4 pt-md-0">
             <span className="input-group-text">Topic</span> 
             <input 
               type="text"
@@ -39,6 +46,9 @@ function App() {
               className="form-control"
               onChange={(e) => setQuery(e.target.value)} 
             />
+          </div>
+          <div>
+            <Tags data={ liquidSnippets } onTagSelect={setSelectedTags}/>
           </div>
         </div>
       </div>
