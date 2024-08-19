@@ -17,8 +17,8 @@ const Tags = ({ data, onTagSelect }) => {
     return (
         <div className="overflow-x-auto d-flex flex-md-wrap gap-3 justify-content-md-center pb-3 px-3 pb-md-5 px-md-5">
             {uniqueTags.map((tag, index) => (
-                <div key={index} class="d-flex">
-                    <div class="border rounded-start p-2">
+                <div key={index} className="d-flex">
+                    <div className="border rounded-start p-2">
                         <input 
                             type="checkbox" 
                             id={`tag-${index}`} 
