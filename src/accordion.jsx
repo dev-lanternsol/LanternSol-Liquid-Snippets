@@ -1,6 +1,5 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import 'github-markdown-css/github-markdown.css';
+import MarkdownComponent from "./markdown";
 
 const Accordion = ({ data }) => {
     return (
@@ -30,9 +29,7 @@ const Accordion = ({ data }) => {
                             data-bs-parent="#accordionExample"
                         >
                             <div className="accordion-body markdown-body text-start m-0 m-md-5">
-                                <ReactMarkdown>
-                                    {item.description || "No description available"}
-                                </ReactMarkdown>
+                                <MarkdownComponent content={ item.description }/>
                             </div>
                         </div>
                     </div>

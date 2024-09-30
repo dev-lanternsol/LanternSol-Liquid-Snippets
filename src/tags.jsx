@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Tags = ({ data, onTagSelect }) => {
     // Extract unique tags from the data
-    const uniqueTags = [...new Set(data.flatMap(item => item.tags))];
+    const uniqueTags = [...new Set(data.flatMap(item => item.tags.split(',')))];
     const [selectedTags, setSelectedTags] = useState([]);
 
     const handleTagChange = (tag) => {

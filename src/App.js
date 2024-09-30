@@ -1,26 +1,50 @@
-import { useState } from "react";
-import { liquidSnippets } from "./liquid_snippets";
+import { useState, useEffect } from "react";
 import logo from './logo.svg';
 import Accordion from "./accordion";
 import Tags from "./tags";
 import './App.css';
+import {createClient } from "@supabase/supabase-js"
+
+const apiKey = process.env.REACT_APP_ANON_PUB_KEY;
+const apiUrl = process.env.REACT_APP_PROJECT_URL;
+const supabase = createClient(apiUrl, apiKey)
 
 function App() {
   const [query, setQuery] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
+  const [snippets, setSnippets] = useState([]);
   const keys = ["title", "description"];
+
+  useEffect(() => {
+    getSnippets();
+  }, []);
+
+  async function getSnippets() {
+    const { data } = await supabase.from("Snippets").select();
+    console.log("Data:", data)
+    setSnippets(data);
+  }
 
   const search = (data) => {
     return data.filter((item) => {
+      // Check if the search query matches title or description
       const matchesQuery = keys.some(key =>
         item[key]?.toLowerCase().includes(query.toLowerCase())
       );
+  
+      // Convert the 'tags' object into an array of tag strings
+      const tagValues = Object.values(item.tags.split(','));
+  
+      // Check if the selected tags are all included in the item's tags
       const matchesTags = selectedTags.length === 0 || selectedTags.every(tag =>
-        item.tags.includes(tag)
+        tagValues.includes(tag)
       );
+  
       return matchesQuery && matchesTags;
     });
   };
+  
+  
 
   return (
     <div className="App">
@@ -48,12 +72,12 @@ function App() {
             />
           </div>
           <div>
-            <Tags data={ liquidSnippets } onTagSelect={setSelectedTags}/>
+            <Tags data={ snippets } onTagSelect={setSelectedTags}/>
           </div>
         </div>
       </div>
       <div className="container p-3">
-        <Accordion data={ search(liquidSnippets) }/> 
+        <Accordion data={ search(snippets) }/> 
       </div>
     </div>
   );
