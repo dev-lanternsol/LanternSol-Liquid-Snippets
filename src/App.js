@@ -30,8 +30,8 @@ function App() {
             <img className="img-fluid" src={logo} alt="lanternsol" width="200" height="40"/>
           </a>
           <div className="hstack gap-3">
-            <a href="https://shopify.github.io/liquid/" className="btn btn-outline-success">Liquid documentation</a>
-            <a href="https://www.freeformatter.com/json-escape.html#before-output" className="btn btn-outline-primary">Markup JSON formatter</a>
+            <a href="https://shopify.github.io/liquid/" target="_blank" rel="noreferrer" className="btn btn-outline-success">Liquid documentation</a>
+            <a href="https://www.freeformatter.com/json-escape.html#before-output" target="_blank" rel="noreferrer" className="btn btn-outline-primary">Markup JSON formatter</a>
           </div>
         </div>
       </nav>
